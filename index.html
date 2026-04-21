@@ -6,15 +6,15 @@
   <title>Predicting U.S. Airline Departure Delays at Scale</title>
   <style>
     :root {
-      --bg: #f4f7fb;
+      --bg: #f5f7fb;
       --surface: #ffffff;
       --ink: #122033;
-      --muted: #55657a;
-      --line: #d7dee8;
-      --accent: #0d6e8a;
-      --accent-2: #0f8f6f;
-      --shadow: 0 12px 32px rgba(18, 32, 51, 0.08);
-      --max: 1120px;
+      --muted: #586779;
+      --line: #d8dee7;
+      --accent: #126e8a;
+      --accent-2: #0f8d6a;
+      --shadow: 0 14px 30px rgba(18, 32, 51, 0.08);
+      --max: 1140px;
     }
 
     * { box-sizing: border-box; }
@@ -47,18 +47,26 @@
     }
 
     .hero {
-      background: #eef4f8;
-      border-bottom: 1px solid var(--line);
-      padding-top: 44px;
-      padding-bottom: 36px;
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: flex-end;
+      background:
+        linear-gradient(rgba(8, 16, 30, 0.48), rgba(8, 16, 30, 0.52)),
+        url("assets/images/month-time-heatmap.png") center center / cover no-repeat;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+      padding-top: 48px;
+      padding-bottom: 64px;
     }
 
     .eyebrow {
       margin: 0 0 12px;
-      color: var(--accent-2);
       font-size: 14px;
       font-weight: 700;
+      letter-spacing: 0;
       text-transform: uppercase;
+      color: #c6f1df;
     }
 
     h1, h2, h3, p {
@@ -66,16 +74,16 @@
     }
 
     h1 {
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1.08;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.06;
       margin-bottom: 14px;
-      max-width: 900px;
+      max-width: 920px;
     }
 
     .subtitle {
       font-size: 18px;
-      color: var(--muted);
-      max-width: 860px;
+      max-width: 900px;
+      color: rgba(255,255,255,0.92);
       margin-bottom: 22px;
     }
 
@@ -83,30 +91,22 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 28px;
     }
 
     .hero-links a {
       display: inline-block;
-      padding: 10px 14px;
-      border: 1px solid var(--line);
+      padding: 11px 14px;
       border-radius: 8px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
       font-weight: 700;
-    }
-
-    .hero-figure {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      display: block;
-      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: white;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
     }
 
     .section-title {
       font-size: 28px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .lede {
@@ -145,9 +145,9 @@
     }
 
     .metric-value {
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 30px;
       line-height: 1.1;
+      font-weight: 700;
       margin-bottom: 6px;
     }
 
@@ -155,11 +155,6 @@
       font-size: 14px;
       color: var(--muted);
       margin: 0;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-bottom: 0;
     }
 
     .art-grid {
@@ -175,9 +170,10 @@
     figure img {
       width: 100%;
       display: block;
+      background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--surface);
+      box-shadow: var(--shadow);
     }
 
     figcaption {
@@ -204,11 +200,16 @@
     }
 
     th {
-      background: #eef4f8;
+      background: #edf3f7;
     }
 
     tr:last-child td {
       border-bottom: none;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 0;
     }
 
     .footer {
@@ -233,53 +234,52 @@
 <body>
   <section class="band hero">
     <div class="inner">
-      <p class="eyebrow">Big Data • PySpark • Dataproc</p>
+      <p class="eyebrow">Big Data | PySpark | Spark MLlib | Dataproc</p>
       <h1>Predicting U.S. Airline Departure Delays at Scale</h1>
-      <p class="subtitle">A distributed PySpark and Apache Spark MLlib pipeline for cloud-scale ETL, feature engineering, model benchmarking, and cluster scaling analysis.</p>
+      <p class="subtitle">A distributed PySpark and Apache Spark MLlib pipeline for cloud-scale ETL, imbalanced delay-risk modeling, unsupervised regime discovery, and Dataproc scaling analysis.</p>
       <div class="hero-links">
-        <a href="README.md">Open README</a>
-        <a href="reports/project-pyspark-report.html">Final Analysis Report</a>
-        <a href="notebooks/airline-delay-prediction-pyspark.ipynb">Final PySpark Notebook</a>
-        <a href="cloud/run-scaling-25pct.sh">Scaling Job Script</a>
+        <a href="reports/final-report.pdf">Final Report PDF</a>
+        <a href="README.md">README</a>
+        <a href="notebooks/airline-delay-prediction-pyspark.ipynb">Main Notebook</a>
+        <a href="reports/notebook-ipynb/project-pyspark-report.ipynb">Project Report Notebook</a>
       </div>
-      <img class="hero-figure" src="assets/images/delay-rate-by-month-time-block.png" alt="Heatmap of delay rate by month and departure time block">
     </div>
   </section>
 
   <section class="band">
     <div class="inner">
-      <h2 class="section-title">What This Project Shows</h2>
-      <p class="lede">This repository presents a portfolio-ready distributed machine learning workflow for airline delay prediction. It combines cloud ETL, leakage-safe feature engineering, Spark MLlib model comparison, and a scale-out study that shows what happened when cluster size increased under real quota constraints.</p>
+      <h2 class="section-title">Project Snapshot</h2>
+      <p class="lede">This project combines cloud ETL, feature engineering, supervised learning, ablation analysis, slicing analysis, unsupervised clustering, anomaly monitoring, and Dataproc scaling experiments in a single airline delay prediction workflow.</p>
       <div class="grid metrics">
         <div class="card">
           <div class="metric-label">Dataset Scale</div>
           <div class="metric-value">6.49M</div>
-          <p class="metric-note">Flight records processed through a Spark-based pipeline.</p>
+          <p class="metric-note">Flight records processed in the distributed workflow.</p>
         </div>
         <div class="card">
-          <div class="metric-label">Target</div>
-          <div class="metric-value">DEP_DEL15</div>
-          <p class="metric-note">Binary departure-delay label for flights delayed more than 15 minutes.</p>
+          <div class="metric-label">Delay Rate</div>
+          <div class="metric-value">19%</div>
+          <p class="metric-note">Minority delayed class handled with weighted training.</p>
         </div>
         <div class="card">
           <div class="metric-label">Best Model</div>
           <div class="metric-value">GBT</div>
-          <p class="metric-note">Strongest overall ranking quality in the final MLlib comparison.</p>
+          <p class="metric-note">Best overall PR-AUC and ROC-AUC in final model comparison.</p>
         </div>
         <div class="card">
-          <div class="metric-label">Best PR-AUC</div>
+          <div class="metric-label">Best Test PR-AUC</div>
           <div class="metric-value">0.3182</div>
-          <p class="metric-note">Measured on the held-out test set.</p>
+          <p class="metric-note">Held-out test result from the champion model.</p>
         </div>
         <div class="card">
-          <div class="metric-label">Best ROC-AUC</div>
-          <div class="metric-value">0.6759</div>
-          <p class="metric-note">Also achieved by the GBTClassifier.</p>
+          <div class="metric-label">Best Scale-In Point</div>
+          <div class="metric-value">25%</div>
+          <p class="metric-note">Performance plateau reached well before full-data training.</p>
         </div>
         <div class="card">
-          <div class="metric-label">Scale-Out Result</div>
-          <div class="metric-value">1.02x</div>
-          <p class="metric-note">Best observed relative speedup at 3 workers on the 25% benchmark.</p>
+          <div class="metric-label">Scale-Out Break-Even</div>
+          <div class="metric-value">3 Workers</div>
+          <p class="metric-note">Best runtime per dollar in the Dataproc experiments.</p>
         </div>
       </div>
     </div>
@@ -287,42 +287,38 @@
 
   <section class="band">
     <div class="inner">
-      <h2 class="section-title">Engineering Scope</h2>
+      <h2 class="section-title">Pipeline Scope</h2>
       <div class="grid two-up">
         <div class="card">
-          <h3>Pipeline Architecture</h3>
+          <h3>Data Engineering</h3>
           <ul>
-            <li>Raw flight and enrichment data staged into parquet.</li>
-            <li>Silver train, validation, and test splits stored in Google Cloud Storage.</li>
-            <li>Gold feature tables assembled for Spark MLlib training and evaluation.</li>
-            <li>Cloud-native outputs written to bucket paths for models, metrics, and scaling results.</li>
+            <li>Raw to silver to gold storage layout on Google Cloud Storage.</li>
+            <li>Feature-ready train, validation, and test splits persisted for reproducibility.</li>
+            <li>Leakage-safe aggregates and reusable ML-ready feature vectors.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Feature Strategy</h3>
+          <h3>Modeling and Analysis</h3>
           <ul>
-            <li>Leakage-safe historical delay-rate aggregates computed on train only.</li>
-            <li>Route-level proxy features for departure context.</li>
-            <li>Airport and time-block delay baselines.</li>
-            <li>Class weights and ranking-aware evaluation for imbalanced delay prediction.</li>
+            <li>Weighted Logistic Regression, Random Forest, and Gradient Boosted Trees.</li>
+            <li>Ablation study for base, congestion, weather, and full feature sets.</li>
+            <li>Slicing analysis by airport, month, carrier, and time block.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Cloud Execution</h3>
+          <h3>Unsupervised Learning</h3>
           <ul>
-            <li>Google Cloud Dataproc cluster configuration captured in the repo.</li>
-            <li>Quota-aware worker sizing for repeated distributed runs.</li>
-            <li>Job submission script with Spark partition and parallelism tuning.</li>
-            <li>Separate scale-out GBT benchmark for runtime analysis.</li>
+            <li>K-Means clustering on standardized operational and weather variables.</li>
+            <li>PCA visualization and cluster profiling.</li>
+            <li>Cluster regimes used as operational interpretation and meta-feature support.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Operational Framing</h3>
+          <h3>Operational Monitoring</h3>
           <ul>
-            <li>Metrics chosen for decision support, not only for classroom scoring.</li>
-            <li>Slice-level analysis by month, airport, carrier, and departure block.</li>
-            <li>Delay-risk patterns compared with predicted-risk patterns.</li>
-            <li>Runtime and efficiency tradeoffs evaluated alongside model quality.</li>
+            <li>Robust z-score anomaly detection across months, airports, and time blocks.</li>
+            <li>Scale-in learning-curve analysis for data ROI.</li>
+            <li>Scale-out Dataproc experiments for cluster efficiency and runtime tradeoffs.</li>
           </ul>
         </div>
       </div>
@@ -331,7 +327,7 @@
 
   <section class="band">
     <div class="inner">
-      <h2 class="section-title">Final Model Comparison</h2>
+      <h2 class="section-title">Model Comparison</h2>
       <table>
         <thead>
           <tr>
@@ -379,23 +375,19 @@
 
   <section class="band">
     <div class="inner">
-      <h2 class="section-title">Visual Findings</h2>
+      <h2 class="section-title">Feature Validation and Operational Views</h2>
       <div class="art-grid">
         <figure>
-          <img src="assets/images/monthly-delay-rate.png" alt="Monthly delay rate line chart">
-          <figcaption>Monthly delay rates show distinct seasonal variation and reinforce the need for time-aware operational monitoring.</figcaption>
+          <img src="assets/images/pca-clusters.png" alt="PCA projection of operational clusters">
+          <figcaption>The PCA view confirms that weather disruption and long-haul structure form distinct operational regimes.</figcaption>
         </figure>
         <figure>
-          <img src="assets/images/monthly-predicted-risk.png" alt="Monthly predicted risk line chart">
-          <figcaption>Average predicted risk broadly tracks the same seasonal pattern, which supports the model's operational usefulness.</figcaption>
+          <img src="assets/images/month-time-heatmap.png" alt="Heatmap of delay rate by month and departure time block">
+          <figcaption>The month-by-time-block heatmap shows when delays structurally concentrate, especially later in the day.</figcaption>
         </figure>
         <figure>
-          <img src="assets/images/scaleout-speedup-and-runtime.png" alt="Scale-out speedup, efficiency, and runtime breakdown charts">
-          <figcaption>The scaling study shows diminishing returns beyond three workers for the quota-constrained benchmark setup.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/images/runtime-breakdown-by-workers.png" alt="Runtime breakdown line chart by worker count">
-          <figcaption>Fit time and end-to-end runtime both help explain why larger clusters did not guarantee faster execution in this setup.</figcaption>
+          <img src="assets/images/airport-spikes.png" alt="Bar chart of top airport spike scores">
+          <figcaption>Airport spike analysis highlights where abnormal delay behavior becomes operationally important.</figcaption>
         </figure>
       </div>
     </div>
@@ -403,36 +395,80 @@
 
   <section class="band">
     <div class="inner">
-      <h2 class="section-title">Artifacts Worth Opening</h2>
+      <h2 class="section-title">Ablation and Scaling Findings</h2>
       <div class="grid two-up">
-        <div class="card">
-          <h3>Primary Deliverables</h3>
-          <ul>
-            <li><a href="reports/project-pyspark-report.html">Project PySpark report</a></li>
-            <li><a href="notebooks/airline-delay-prediction-pyspark.ipynb">Final PySpark notebook</a></li>
-            <li><a href="reports/final-pyspark-analysis.html">Merged analysis export</a></li>
-            <li><a href="reports/final-presentation.pdf">Final presentation PDF</a></li>
-            <li><a href="reports/final-presentation.pptx">Final presentation PPTX</a></li>
-          </ul>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Feature Set</th>
+                <th>Test PR-AUC</th>
+                <th>Recall@Top5%</th>
+                <th>F1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Base</td><td>0.2618</td><td>0.1106</td><td>0.3400</td></tr>
+              <tr><td>+Congestion</td><td>0.2571</td><td>0.1103</td><td>0.3387</td></tr>
+              <tr><td>+Weather</td><td>0.2895</td><td>0.1293</td><td>0.3544</td></tr>
+              <tr><td>Full</td><td>0.2913</td><td>0.1309</td><td>0.3505</td></tr>
+            </tbody>
+          </table>
         </div>
         <div class="card">
-          <h3>Cloud and Scaling Files</h3>
+          <h3>What the Results Say</h3>
           <ul>
-            <li><a href="cloud/cluster-config-specs.txt">Dataproc cluster specs</a></li>
-            <li><a href="cloud/run-scaling-25pct.sh">25% scale-out batch script</a></li>
-            <li><a href="cloud/scaleout-gbt-job.py">Scale-out GBT PySpark job</a></li>
-            <li><a href="reports/scaling-analysis-report.html">Scaling analysis report</a></li>
-            <li><a href="docs/data-attributes.txt">Data attributes documentation</a></li>
+            <li>Weather produced the largest performance lift in the ablation study.</li>
+            <li>The model plateaued around 25% of the training data for this setup.</li>
+            <li>Adding workers beyond three did not improve runtime for the scale-out benchmark.</li>
+            <li>The project emphasizes cost-effective experimentation, not just bigger clusters.</li>
           </ul>
         </div>
       </div>
-      <p class="lede" style="margin-top:20px;">The original final report PDF from the course submission is not included because it exceeds GitHub's standard file-size limit. The technical substance is preserved through the merged analysis export, notebook, supporting reports, and presentation materials.</p>
+      <div class="art-grid" style="margin-top:20px;">
+        <figure>
+          <img src="assets/images/scale-in-learning-curve-tradeoff.png" alt="Learning curve and cost tradeoff">
+          <figcaption>The scale-in results show that more data quickly became expensive without meaningfully improving PR-AUC.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/scale-out-full-runtime-breakdown.png" alt="Scale-out efficiency and runtime breakdown">
+          <figcaption>The scale-out experiments show a clear break-even point around three workers before distributed overhead takes over.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="inner">
+      <h2 class="section-title">Artifacts to Open</h2>
+      <div class="grid two-up">
+        <div class="card">
+          <h3>Core Deliverables</h3>
+          <ul>
+            <li><a href="reports/final-report.pdf">Final report PDF</a></li>
+            <li><a href="notebooks/airline-delay-prediction-pyspark.ipynb">Main PySpark notebook</a></li>
+            <li><a href="reports/final-pyspark-analysis.html">Merged analysis export</a></li>
+            <li><a href="presentations/final-presentation.pdf">Final presentation PDF</a></li>
+            <li><a href="presentations/final-presentation.pptx">Final presentation PPTX</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Support Files</h3>
+          <ul>
+            <li><a href="reports/notebook-ipynb/project-pyspark-report.ipynb">Project report notebook</a></li>
+            <li><a href="reports/notebook-html/project-pyspark-report.html">Project report HTML export</a></li>
+            <li><a href="cloud/cluster-config-specs.txt">Dataproc cluster specs</a></li>
+            <li><a href="cloud/run-scaling-25pct.sh">Scale-out batch script</a></li>
+            <li><a href="cloud/scaleout-gbt-job.py">Scale-out GBT job</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="band footer">
     <div class="inner">
-      This repository highlights distributed machine learning, Spark-based ETL, Google Cloud Dataproc execution, model benchmarking, and cloud scaling analysis in one project package.
+      This repository highlights distributed machine learning, feature engineering, cloud-scale data pipelines, unsupervised operational regime discovery, anomaly monitoring, and practical Dataproc scaling analysis in one project.
     </div>
   </section>
 </body>
