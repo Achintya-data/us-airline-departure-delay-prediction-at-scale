@@ -1,0 +1,31 @@
+gcloud dataproc clusters create airline-analysis-v3 \
+  --region=us-east1 \
+  --zone=us-east1-b \
+  --image-version=2.2-debian12 \
+  --master-machine-type=n2-highmem-4 \
+  --master-boot-disk-size=300GB \
+  --master-boot-disk-type=pd-standard \
+  --num-workers=4 \
+  --worker-machine-type=n2-standard-2 \
+  --worker-boot-disk-size=200GB \
+  --worker-boot-disk-type=pd-standard \
+  --bucket=big-data-project-481305-flightdelay \
+  --optional-components=JUPYTER \
+  --enable-component-gateway
+
+
+
+gcloud dataproc clusters create airline-analysis-v3 \
+  --region=us-east1 \
+  --zone=us-east1-b \
+  --image-version=2.2-debian12 \
+  --master-machine-type=n2-highmem-4 \
+  --master-boot-disk-size=300GB \
+  --master-boot-disk-type=pd-standard \
+  --num-workers=4 \
+  --worker-machine-type=n2-standard-2 \
+  --worker-boot-disk-size=200GB \
+  --worker-boot-disk-type=pd-standard \
+  --bucket=big-data-project-481305-flightdelay \
+  --optional-components=JUPYTER \
+  --enable-component-gateway
